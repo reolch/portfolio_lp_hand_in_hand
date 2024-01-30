@@ -35,6 +35,10 @@ nav ul li {
   margin-right: 20px;
 }
 
+.round-img img {
+  border-radius: 50%;
+}
+
 /* スマートフォン用のメニューを非表示にする */
 .mobile-menu {
   display: none;
