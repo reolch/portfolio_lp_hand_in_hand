@@ -7,6 +7,10 @@
     <title>Hand in Hand</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 </head>
 
 <body>
@@ -54,10 +58,10 @@
                         <span>コンセプト</span>
                     </div>
                     <div class="generic-container">
-                        <div class="img-container round-img">
+                        <div class="generic-image-container img-container round-img">
                             <img src="./img/DSCF1127.jpg" alt="">
                         </div>
-                        <div class="discription-container">
+                        <div class="generic-container-discription discription-container">
                             <h3>体に優しく心に届く味</h3>
                             <p>
                                 当店は、「体に優しく心に届く味」を提供するお店です。<br>
@@ -80,10 +84,10 @@
                         <span>メニュー</span>
                     </div>
                     <div class="generic-container">
-                        <div class="img-container round-img">
+                        <div class="generic-image-container img-container round-img">
                             <img src="./img/DSCF1127.jpg" alt="">
                         </div>
-                        <div class="discription-container">
+                        <div id="menu-1" class="generic-container-discription discription-container">
                             <h3>カヌレル・カヌレ</h3>
                             <p>
                                 甜菜糖を使用した体に優しい甘さ控えめのカヌレです。<br>
@@ -100,8 +104,7 @@
                     </div>
 
                     <div class="reverse-generic-container">
-
-                        <div class="discription-container">
+                        <div class="reverse-generic-container-discription discription-container">
                             <h3>カヌレル・カヌレ（抹茶）</h3>
                             <p>
                                 甜菜糖を使用した体に優しい甘さ控えめのカヌレです。<br>
@@ -115,16 +118,16 @@
                                 手作りの温かさとフランスの伝統が融合した、最高のお味をお楽しみください。<br>
                             </p>
                         </div>
-                        <div class="img-container round-img">
+                        <div class="reverse-generic-image-container img-container round-img">
                             <img src="./img/DSCF1114.jpg" alt="">
                         </div>
                     </div>
 
                     <div class="generic-container">
-                        <div class="img-container round-img">
+                        <div class="generic-image-container img-container round-img">
                             <img src="./img/ai-generated-8129967_1280.png" alt="">
                         </div>
-                        <div class="discription-container">
+                        <div class="generic-container-discription discription-container">
                             <h3>あっぷるちゃん</h3>
                             <p>
                                 アップルパイ - 自家製の贅沢なデリカシー<br>
@@ -239,12 +242,67 @@
         </footer>
 </body>
 <script>
+    setGenericContainerDiscription();
+    setReverseGenericContainerDiscription();
+
+    setGenericContainerImage();
+    setReverseGenericContainerImage();
+
     document.querySelector('.menu-toggle').addEventListener('click', function () {
         // モバイルメニューをトグルする
         document.querySelector('.mobile-menu').classList.toggle('open');
         // ハンバーガーアイコンのアニメーションをトグルする
         this.classList.toggle('open');
     });
+
+    var options = {
+        threshold:1
+    };
+
+    function setGenericContainerDiscription() {
+        var observer = new IntersectionObserver(createCallback('animate__fadeInRight'), options);
+        document.querySelectorAll('.generic-container-discription').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    function setReverseGenericContainerDiscription() {
+        var observer = new IntersectionObserver(createCallback('animate__fadeInLeft'), options);
+        document.querySelectorAll('.reverse-generic-container-discription').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    function setGenericContainerImage() {
+        var observer = new IntersectionObserver(createCallback('animate__fadeInRight'), options);
+        document.querySelectorAll('.generic-image-container').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    function setReverseGenericContainerImage() {
+        var observer = new IntersectionObserver(createCallback('animate__fadeInLeft'), options);
+        document.querySelectorAll('.reverse-generic-image-container').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    // コールバック関数を使用するためのラッパー関数
+    function createCallback(animationName) {
+        return function(entries, observer) {
+            callbackAnimate(entries, observer, animationName);
+        };
+    }
+
+    // 共通のコールバック関数
+    function callbackAnimate(entries, observer, animationName) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate__animated', animationName);
+            }
+        });
+    }
+    
 
 </script>
 
