@@ -58,6 +58,58 @@ nav ul li {
   transition: 0.4s;
 }
 
+/* ハンバーガーメニューのアイコンスタイル */
+.menu-toggle {
+  display: block; /* モバイル表示時に表示する */
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 1000;
+}
+
+/* モバイルメニューの基本スタイル */
+.mobile-menu {
+  display: none; /* 初期状態では非表示 */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px; /* メニューの幅 */
+  height: 100%; /* 画面を全てカバー */
+  background-color: #fff; /* 背景色 */
+  box-shadow: -2px 0px 5px rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.mobile-menu ul {
+  padding: 20px;
+  list-style: none;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  padding: 10px;
+  color: #333; /* 文字色 */
+  text-decoration: none;
+}
+
+/* ハンバーガーメニューが開いた状態のスタイル */
+.mobile-menu.open {
+  display: block; /* メニューを表示する */
+}
+
+/* ハンバーガーメニューが開いた時のアイコンの変化（オプション）*/
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0; /* 中央のバーを消す */
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg); /* 上のバーを斜めに */
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg); /* 下のバーを斜めに */
+}
+
 /* 記事関連スタイル */
 article {
   position: relative;
@@ -461,7 +513,7 @@ table.course-table .price {
   }
 
   header img {
-    max-width: 100px;
+    max-width: 150px;
   }
 
   nav ul {

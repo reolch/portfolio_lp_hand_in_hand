@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <h1><img src="./img/logo.jpg" height="40" alt="Logo"></h1>
+        <h1><img src="./img/logo.jpg" alt="Logo"></h1>
         <nav>
             <ul>
                 <li><a href="#concept">Concept</a></li>
@@ -245,12 +245,6 @@
     setGenericContainerImage();
     setReverseGenericContainerImage();
 
-    document.querySelector('.menu-toggle').addEventListener('click', function () {
-        // モバイルメニューをトグルする
-        document.querySelector('.mobile-menu').classList.toggle('open');
-        // ハンバーガーアイコンのアニメーションをトグルする
-        this.classList.toggle('open');
-    });
 
     var options = {
         threshold:1
