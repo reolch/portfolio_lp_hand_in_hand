@@ -20,6 +20,7 @@ header {
 }
 
 header img {
+  padding: 30px;
   width: 100%;
   height: auto;
   max-width: 150px;
