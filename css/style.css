@@ -477,9 +477,9 @@ table.course-table .price {
 .reverse-generic-container {
   display: flex;
   max-width: 1600px;
-  margin: 64px auto;
-  padding-top: 80px;
-  padding-bottom: 160px;
+  margin: auto auto;
+  padding-top: auto;
+  padding-bottom: auto;
 }
 
 /* 汎用的なイメージスタイル */
@@ -541,8 +541,8 @@ table.course-table .price {
   }
 
   .img-container {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: auto;
+    padding-bottom: auto;
     width: 65%;
     margin: auto;
     display: flex;
@@ -580,6 +580,7 @@ table.course-table .price {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    margin: 50px 60px;
   }
 
   .generic-container h3,
